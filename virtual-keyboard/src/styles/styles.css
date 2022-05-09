@@ -1,4 +1,60 @@
-﻿h1 {
+﻿.wrapper {
+    min-width: 600px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+h1,
+h4 {
     text-align: center;
-    color: gray;
+    color: #374a5c;
+}
+
+textarea {
+    padding: 0;
+    width: 750px;
+    height: 250px;
+    background-color: #e0ecf3;
+    color: #000000;
+}
+
+div {
+    padding: 12px;
+}
+
+.keyboard {
+    border: 3px solid #272d33;
+    border-radius: 5px;
+    background-color: #708090;
+}
+
+.lineDiv {
+    display: flex;
+    justify-content: space-around;
+    padding: 6px;
+}
+
+.buttonChar {
+    border-radius: 8px;
+    width: 35px;
+    height: 35px;
+    color: #0149a1;
+    font-size: large;
+    background-color: #e5eaee;
+}
+
+.buttonControl {
+    border-radius: 8px;
+    font-size: large;
+    min-width: 35px;
+    height: 35px;
+    background-color: #435a70;
+    color: #f6e823;
+}
+
+.space {
+    border-radius: 8px;
+    width: 220px;
+    height: 35px;
+    background-color: #e5eaee
 }
