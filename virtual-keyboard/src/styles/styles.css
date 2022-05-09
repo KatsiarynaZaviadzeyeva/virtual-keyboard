@@ -52,6 +52,14 @@ div {
     color: #f6e823;
 }
 
+.buttonChar:hover {
+    background-color: #f6e823;
+}
+
+.buttonControl:hover {
+    background-color: #81aed2;
+}
+
 .space {
     border-radius: 8px;
     width: 220px;

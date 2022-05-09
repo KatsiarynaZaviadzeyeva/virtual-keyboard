@@ -16,6 +16,11 @@ let third = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\''];
 let fourth = ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
 let controls = ['Backspace', 'Tab', 'Del', 'CapsLock', 'Enter', 'Shift', 'Ctrl', 'Win', 'Alt', '&uarr;', '&larr;', '&darr;', '&rarr;'];
 
+let firstRu = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '='];
+let secondRu = ['й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\'];
+let thirdRu = ['ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э'];
+let fourthRu = ['я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.'];
+
 function showLine(line) {
     let lineDiv = document.createElement('div');
     lineDiv.className = 'lineDiv';
@@ -60,38 +65,50 @@ function showControlBegin(control, parentElement) {
     parentElement.prepend(b);
 }
 
+function clickListener(event) {
+    let s = document.getElementsByTagName('textarea')[0];
+    if (event.target.value) {
+        s.value += event.target.value;
+    }
+
+}
+
+function SetKeyboard() {
+    showLine(first);
+    showLine(second);
+    showLine(third);
+    showLine(fourth);
+    showFifthLine();
+
+    showControlEnd(controls[0], document.getElementsByClassName('lineDiv')[0]);
+
+    showControlEnd(controls[2], document.getElementsByClassName('lineDiv')[1]);
+    showControlBegin(controls[1], document.getElementsByClassName('lineDiv')[1]);
+
+    showControlBegin(controls[3], document.getElementsByClassName('lineDiv')[2]);
+    showControlEnd(controls[4], document.getElementsByClassName('lineDiv')[2]);
+
+    showControlBegin(controls[5], document.getElementsByClassName('lineDiv')[3]);
+    showControlEnd(controls[9], document.getElementsByClassName('lineDiv')[3]);
+    showControlEnd(controls[5], document.getElementsByClassName('lineDiv')[3]);
+
+    showControlBegin(controls[8], document.getElementsByClassName('lineDiv')[4]);
+    showControlBegin(controls[7], document.getElementsByClassName('lineDiv')[4]);
+    showControlBegin(controls[6], document.getElementsByClassName('lineDiv')[4]);
+    showControlEnd(controls[8], document.getElementsByClassName('lineDiv')[4]);
+    showControlEnd(controls[10], document.getElementsByClassName('lineDiv')[4]);
+    showControlEnd(controls[11], document.getElementsByClassName('lineDiv')[4]);
+    showControlEnd(controls[12], document.getElementsByClassName('lineDiv')[4]);
+}
+
 let keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
-
-showLine(first);
-showLine(second);
-showLine(third);
-showLine(fourth);
-showFifthLine();
-
 document.body.appendChild(wrapper);
 wrapper.appendChild(keyboard);
-
-showControlEnd(controls[0], document.getElementsByClassName('lineDiv')[0]);
-
-showControlEnd(controls[2], document.getElementsByClassName('lineDiv')[1]);
-showControlBegin(controls[1], document.getElementsByClassName('lineDiv')[1]);
-
-showControlBegin(controls[3], document.getElementsByClassName('lineDiv')[2]);
-showControlEnd(controls[4], document.getElementsByClassName('lineDiv')[2]);
-
-showControlBegin(controls[5], document.getElementsByClassName('lineDiv')[3]);
-showControlEnd(controls[9], document.getElementsByClassName('lineDiv')[3]);
-showControlEnd(controls[5], document.getElementsByClassName('lineDiv')[3]);
-
-showControlBegin(controls[8], document.getElementsByClassName('lineDiv')[4]);
-showControlBegin(controls[7], document.getElementsByClassName('lineDiv')[4]);
-showControlBegin(controls[6], document.getElementsByClassName('lineDiv')[4]);
-showControlEnd(controls[8], document.getElementsByClassName('lineDiv')[4]);
-showControlEnd(controls[10], document.getElementsByClassName('lineDiv')[4]);
-showControlEnd(controls[11], document.getElementsByClassName('lineDiv')[4]);
-showControlEnd(controls[12], document.getElementsByClassName('lineDiv')[4]);
+SetKeyboard();
 
 let note = document.createElement('h4');
 note.innerHTML = '<h4>Клавиатура создана в операционной системе Windows</h4><h4>Для переключения языка нажмите alt + shift</h4>';
 wrapper.appendChild(note);
+
+document.getElementsByClassName('keyboard')[0].addEventListener('click', clickListener, false);
